@@ -48,11 +48,23 @@ window.onload = function(){
             nodes[i].style.boxShadow='10px 20px 30px black'; 
         }
     }
+
+
+    shrink = function(){
+    nodes = document.getElementsByClassName('round');
+    for (let i = 0; i < nodes.length; i++) {
+        let height = nodes[i].style.height.replace('px',' ');
+        let width = nodes[i].style.width.replace('px',' ');
+
+        if(height<=0){
+            nodes[i].removed;
+        }else{
+            nodes[i].style.height = Math.floor(height - 2/2) +'px';
+            nodes[i].style.width = Math.floor(height - 2/2) +'px';
+        }
+        
+    }
+    //call the shrink
+    }
+    setInterval(shrink, 100);
 }
-
-// shrink = function(){
-
-
-
-//     setInterval(shrink, 75);
-// }
